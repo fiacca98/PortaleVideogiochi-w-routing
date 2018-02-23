@@ -39,18 +39,27 @@ export class GameListService {
       }
     }
   }
+
   
   setGame(item: GameItem){
-    let index: number = 0;
     for(let game of this.games)
     {
       if(game.id == item.id)
       {
-        game = item; 
+        game.nome = item.nome;
+        game.annoUscita = item.annoUscita;
+        game.prezzo = item.prezzo; 
+        game.consoleType = item.consoleType;
+        game.descrizione = item.descrizione;
+        game.genere = item.genere;
+        game.rating = game.rating;
         alert("modificato");
       }
-      index++;
     }
+  }
+
+  clone(item: GameItem){
+    return new GameItem(item.id, item.nome, item.descrizione, item.genere, item.rating, item.prezzo, item.annoUscita, item.consoleType);
   }
 
 }

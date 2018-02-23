@@ -13,6 +13,8 @@ import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { GameListService } from './game-list.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthGurdaLoginService } from './auth-gurda-login.service';
 
 
 @NgModule({
@@ -30,7 +32,7 @@ import { LoginService } from './login.service';
     FormsModule,
     PortaleRouterModule
   ],
-  providers: [GameListService, LoginService],
+  providers: [GameListService, LoginService, AuthGuardService, AuthGurdaLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

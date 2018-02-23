@@ -11,12 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ModificaComponent implements OnInit {
 
   nomeGioco: string;
+  copyGame: GameItem;
   currentGame: GameItem;
 
   constructor(private route: ActivatedRoute ,private gameListService: GameListService) { 
     this.route.params.subscribe(params => {
-      if(params["id"] != "" && params["id"] != null)
-        this.currentGame = this.gameListService.getGameById(params["id"]);
+      if(params["id"] != "" && params["id"] != null && params["id"] != "x"){
+        this.copyGame = this.gameListService.getGameById(params["id"]);
+        this.currentGame = gameListService.clone(this.copyGame);
+      }
     });
   }
 
@@ -24,7 +27,8 @@ export class ModificaComponent implements OnInit {
     
     if(this.gameListService.findGame(this.nomeGioco) == true){
 
-      this.currentGame = this.gameListService.getGameByName(this.nomeGioco);
+      this.copyGame = this.gameListService.getGameByName(this.nomeGioco);
+      this.currentGame = this.gameListService.clone(this.copyGame);
     }
     else{
       alert("Gioco non presente");
