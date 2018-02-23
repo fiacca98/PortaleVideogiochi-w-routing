@@ -11,6 +11,8 @@ import { ListaComponent } from './lista/lista.component';
 import { ModificaComponent } from './modifica/modifica.component';
 import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { GameListService } from './game-list.service';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -20,14 +22,15 @@ import { GameListService } from './game-list.service';
     HeaderComponent,
     ListaComponent,
     ModificaComponent,
-    DettaglioComponent
+    DettaglioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     PortaleRouterModule
   ],
-  providers: [GameListService],
+  providers: [GameListService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

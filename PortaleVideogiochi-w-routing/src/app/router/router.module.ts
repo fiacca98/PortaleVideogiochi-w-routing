@@ -4,16 +4,18 @@ import { HomeComponent } from '../home/home.component';
 import { ListaComponent } from '../lista/lista.component';
 import { ModificaComponent } from '../modifica/modifica.component';
 import { DettaglioComponent } from '../dettaglio/dettaglio.component';
+import { LoginComponent } from '../login/login.component';
 
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'lista', component: ListaComponent},
-  { path: 'modifica', component: ModificaComponent},
+  { path: 'modifica/:id', component: ModificaComponent},
   { path: 'dettaglio/:id', component: DettaglioComponent},
+  { path: 'login', component: LoginComponent},
 
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "**", component: HomeComponent}
 
 ];

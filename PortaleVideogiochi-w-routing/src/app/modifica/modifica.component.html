@@ -1,3 +1,17 @@
-<p>
-  modifica works!
-</p>
+<input [(ngModel)]="nomeGioco"/>
+<div (click)="searchGame()" style="cursor:pointer; background-color:brown; width:10%">
+  cerca gioco
+</div>
+<div *ngIf="currentGame != null">
+  {{currentGame?.id}}<br>
+  <input [(ngModel)]="currentGame.nome" value=""><br>
+  <input [(ngModel)]="currentGame.descrizione" value=""><br>
+  <input [(ngModel)]="currentGame.genere" value=""><br>
+  <input [(ngModel)]="currentGame.rating" value=""><br>
+  <input [(ngModel)]="currentGame.prezzo" value=""><br>
+  <input [(ngModel)]="currentGame.annoUscita" value=""><br>
+  <input [(ngModel)]="currentGame.consoleType" value=""><br>
+  <div (click)="saveData()" style="cursor:pointer; background-color:brown; width:10%">
+      modifica gioco
+    </div>
+</div>

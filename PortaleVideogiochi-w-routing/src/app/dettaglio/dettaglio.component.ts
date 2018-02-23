@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameListService } from '../game-list.service';
 import { GameItem } from '../../GameItem';
 
@@ -12,7 +12,7 @@ export class DettaglioComponent implements OnInit {
 
   selectedGame: GameItem;
 
-  constructor(private route: ActivatedRoute, private gameListService: GameListService) { 
+  constructor(private route: ActivatedRoute, private gameListService: GameListService, private router: Router) { 
     this.route.params.subscribe(params => {
       if(params["id"] != "" && params["id"] != null)
         this.selectedGame = this.gameListService.getGameById(params["id"]);
@@ -20,6 +20,10 @@ export class DettaglioComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  changeData(){
+    this.router.navigate(["/modifica/" + this.selectedGame.id]);
   }
 
 }
