@@ -5,8 +5,28 @@ import { Genere } from './Generi';
 @Injectable()
 export class GameListService {
 
-  generi: Genere;
-  games: GameItem[] = [new GameItem("01", "fifa 18", "Gioco Di Calcio", "Sportivo", 4.5, 49.90, 2017, "PS4"), new GameItem("02", "pes 18", "Gioco Di Calcio", "Sportivo", 4.5, 49.90, 2017, "PS4"), new GameItem("03", "FIFA 17", "Gioco Di Calcio", "Sportivo", 4.5, 49.90, 2016, "PS4")];
+  
+  generi: Genere[] = [
+    new Genere("00", "Tutti"),
+    new Genere("01", "Simulazione"),
+    new Genere("02", "Sparatutto"),
+    new Genere("03", "Avventura"),
+    new Genere("04", "Rompicapo"),
+    new Genere("05", "Azione"),
+    new Genere("06", "MOBA"),
+    new Genere("07", "RPG"),
+    new Genere("08", "Picchiaduro")
+  ];
+  games: GameItem[] = [
+    new GameItem("01", "Fifa 18", "Gioco di calcio", this.generi[1].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("02", "Battlefield One", "Gioco pum pum", this.generi[2].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("03", "Uncharted 4", "Gioco cerca la ricchezza", this.generi[3].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("04", "Tetris", "Gioco di incastri", this.generi[4].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("05", "Bayonetta", "Gioco non so cosa si faccia, fatti i cazzi tuoi", this.generi[5].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("06", "DOTA 2", "Ah boh, tu sai che gioco è?", this.generi[6].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("07", "League of Legends", "Gioco per disadattati", this.generi[7].id, 4.5, 49.90, 2017, "PS4"), 
+    new GameItem("08", "Tekken 7", "Gioco di menare", this.generi[8].id, 4.5, 49.90, 2017, "PS4")
+  ];
 
   getGamesList(): GameItem[]{
       return this.games;
@@ -62,6 +82,10 @@ export class GameListService {
 
   clone(item: GameItem){
     return new GameItem(item.id, item.nome, item.descrizione, item.genere, item.rating, item.prezzo, item.annoUscita, item.consoleType);
+  }
+
+  getGeneri(): Genere[] {
+    return this.generi;
   }
 
 }

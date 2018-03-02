@@ -3,6 +3,7 @@ import { GameListService } from '../game-list.service';
 import { GameItem } from '../../GameItem';
 import { PortaleRouterModule } from '../router/router.module';
 import { Router } from '@angular/router';
+import { Genere } from '../Generi';
 
 
 @Component({
@@ -12,10 +13,13 @@ import { Router } from '@angular/router';
 })
 export class ListaComponent implements OnInit {
 
+  generi: Genere[];
   games: GameItem[];
+  filtro: string = "00";
   
   constructor(private gameListservice: GameListService, private router: Router) { 
     this.games = gameListservice.getGamesList(); 
+    this.generi = this.gameListservice.getGeneri();
   }
 
   ngOnInit() {
@@ -23,6 +27,11 @@ export class ListaComponent implements OnInit {
 
   showDetail(item: GameItem){
     this.router.navigate(["/dettaglio/" + item.id]);
+  }
+
+  filtra(item: Genere){
+    console.log("ci sono");
+    this.filtro = item.id;
   }
 
 }
