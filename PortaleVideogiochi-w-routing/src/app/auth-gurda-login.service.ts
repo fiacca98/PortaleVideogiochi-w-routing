@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 export class AuthGurdaLoginService {
 
   canActivate(){
-    if(localStorage.getItem("username") == null && localStorage.getItem("password") == null )
+    if(sessionStorage.getItem("username") == null && sessionStorage.getItem("password") == null )
       return true;
       else{
         this.router.navigate(["/home"]);

@@ -26,4 +26,12 @@ export class DettaglioComponent implements OnInit {
     this.router.navigate(["/modifica/" + this.selectedGame.id]);
   }
 
+  isAdmin(): boolean{
+    if(sessionStorage.getItem("admin") != null){
+      return true;
+    }
+    else
+    return false;
+  }
+
 }

@@ -1,27 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Users } from './Users';
 
 @Injectable()
 export class LoginService {
-  
-  username: String = "admin";
-  password: String = "admin";
 
-  private sectionSelected: Subject<boolean> = new Subject<boolean>();
-  public sectionSelected$ = this.sectionSelected.asObservable();
+  admin: Users = new Users("admin","admin");
+  utenti: Users[] = [new Users("luigi","luigi"),new Users("simone","simone")];
+
+  private permission: Subject<boolean> = new Subject<boolean>();
+  public permission$ = this.permission.asObservable();
 
   constructor() { }
 
-  checkData(username: string, password: string): boolean {
-    if(this.username == username && this.password == password)
+  checkData(username: string, password: string): number {
+    if(this.admin.username == username && this.admin.password == password)
     {
-      this.sectionSelected.next(true);
-      return true;
+      return 0;
     }
-    else
-    {
-      this.sectionSelected.next(false);
-      return false; 
+    else{
+      for(let user of this.utenti){
+        if(user.username == username && user.password == password){  
+              
+          return 1;
+        }
+      }    
+      return 2; 
     }
   }
 

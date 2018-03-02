@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +10,35 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  constructor(private loginService: LoginService, private router: Router) { }
+  admin: boolean;
+  constructor(private loginService: LoginService, private router: Router) { 
+  }
 
   ngOnInit() {
   }
 
-  login(){
+  login() {
 
-  if(this.loginService.checkData(this.username,this.password) == true){
-    localStorage.setItem("username", this.username);
-    localStorage.setItem("password", this.password);
-    this.router.navigate(["/home/"]);
-  }
-  else
-    alert("utente non registrato")
+    switch(this.loginService.checkData(this.username, this.password)){
+
+      case 0: 
+      sessionStorage.setItem("username", this.username);
+      sessionStorage.setItem("password", this.password);
+      sessionStorage.setItem("admin", "yes");
+      this.router.navigate(["/home/"]);
+      break;
+
+      case 1:
+      sessionStorage.setItem("username", this.username);
+      sessionStorage.setItem("password", this.password);
+      this.router.navigate(["/home/"]);
+      break;
+
+      case 2:
+      alert("utente non registrato");
+      break;
+
+    }
   }
 
 }

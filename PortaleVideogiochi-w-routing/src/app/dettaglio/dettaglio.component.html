@@ -8,9 +8,11 @@
     {{selectedGame?.annoUscita}}<br>
     {{selectedGame?.consoleType}}<br>
 
+    <ng-container *ngIf="isAdmin() == true">
     <div (click)="changeData()" style="cursor:pointer; background-color:brown; width:10%">
         modifica gioco
     </div>
+    </ng-container>
     <div routerLink="/lista" style="cursor:pointer; background-color:brown; width:10%; margin-top:5px; ">
           Torna Indietro
     </div>
