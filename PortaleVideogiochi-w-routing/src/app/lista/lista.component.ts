@@ -15,23 +15,30 @@ export class ListaComponent implements OnInit {
 
   generi: Genere[];
   games: GameItem[];
+  currentGames: GameItem[];
   filtro: string = "00";
-  
-  constructor(private gameListservice: GameListService, private router: Router) { 
-    this.games = gameListservice.getGamesList(); 
+
+  constructor(private gameListservice: GameListService, private router: Router) {
+    this.games = gameListservice.getGamesList();
     this.generi = this.gameListservice.getGeneri();
+    this.currentGames = this.games.filter(item => {
+      return true;
+    });
   }
 
   ngOnInit() {
   }
 
-  showDetail(item: GameItem){
+  showDetail(item: GameItem) {
     this.router.navigate(["/dettaglio/" + item.id]);
   }
 
-  filtra(item: Genere){
-    console.log("ci sono");
-    this.filtro = item.id;
+  filtra() {
+    console.log("filtra");
+    this.currentGames = this.games.filter(game => {
+      return game.genere == this.filtro || this.filtro == "00"
+    });
+
   }
 
 }
