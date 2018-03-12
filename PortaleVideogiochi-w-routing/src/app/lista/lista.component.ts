@@ -21,9 +21,6 @@ export class ListaComponent implements OnInit {
   constructor(private gameListservice: GameListService, private router: Router) {
     this.games = gameListservice.getGamesList();
     this.generi = this.gameListservice.getGeneri();
-    this.currentGames = this.games.filter(item => {
-      return true;
-    });
   }
 
   ngOnInit() {
@@ -31,14 +28,6 @@ export class ListaComponent implements OnInit {
 
   showDetail(item: GameItem) {
     this.router.navigate(["/dettaglio/" + item.id]);
-  }
-
-  filtra() {
-    console.log("filtra");
-    this.currentGames = this.games.filter(game => {
-      return game.genere == this.filtro || this.filtro == "00"
-    });
-
   }
 
 }
