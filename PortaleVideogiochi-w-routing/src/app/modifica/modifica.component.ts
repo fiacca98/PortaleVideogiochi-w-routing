@@ -42,4 +42,8 @@ export class ModificaComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngFormReset(){
+    this.currentGame = this.gameListService.clone(this.copyGame);
+  }
+
 }

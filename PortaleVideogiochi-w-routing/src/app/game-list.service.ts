@@ -18,14 +18,14 @@ export class GameListService {
     new Genere("08", "Picchiaduro")
   ];
   games: GameItem[] = [
-    new GameItem("01", "Fifa 18", "Gioco di calcio", this.generi[1].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("02", "Battlefield One", "Gioco pum pum", this.generi[2].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("03", "Uncharted 4", "Gioco cerca la ricchezza", this.generi[3].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("04", "Tetris", "Gioco di incastri", this.generi[4].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("05", "Bayonetta", "Gioco non so cosa si faccia, fatti i cazzi tuoi", this.generi[5].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("06", "DOTA 2", "Ah boh, tu sai che gioco è?", this.generi[6].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("07", "League of Legends", "Gioco per disadattati", this.generi[7].id, 4.5, 49.90, 2017, "PS4"), 
-    new GameItem("08", "Tekken 7", "Gioco di menare", this.generi[8].id, 4.5, 49.90, 2017, "PS4")
+    new GameItem("01", "Fifa 18", "Gioco di calcio", this.generi[1].id, 4.5, 49.90, new Date("2017-2-3"), "PS4"), 
+    new GameItem("02", "Battlefield One", "Gioco pum pum", this.generi[2].id, 4.5, 49.90, new Date("2017-2-3"), "PS4"), 
+    new GameItem("03", "Uncharted 4", "Gioco cerca la ricchezza", this.generi[3].id, 4.5, 49.90, new Date("2017-2-3"), "PS4"), 
+    new GameItem("04", "Tetris", "Gioco di incastri", this.generi[4].id, 4.5, 49.90, new Date("2-3-2017"), "PS4"), 
+    new GameItem("05", "Bayonetta", "Gioco non so cosa si faccia, fatti i cazzi tuoi", this.generi[5].id, 4.5, 49.90, new Date(2017-2-3), "PS4"), 
+    new GameItem("06", "DOTA 2", "Ah boh, tu sai che gioco è?", this.generi[6].id, 4.5, 49.90, new Date(2017-2-3), "PS4"), 
+    new GameItem("07", "League of Legends", "Gioco per disadattati", this.generi[7].id, 4.5, 49.90, new Date(2017-2-3), "PS4"), 
+    new GameItem("08", "Tekken 7", "Gioco di menare", this.generi[8].id, 4.5, 49.90, new Date(2017-2-3), "PS4")
   ];
 
   getGamesList(): GameItem[]{
