@@ -12,7 +12,10 @@
     <input formControlName="prezzo"><br>
     <input formControlName="annoUscita"><br>
     <input formControlName="consoleType"><br>
-    <button type="submit">modifica gioco</button>
+    {{gameForm.get('prezzo').status}}
+    
+    <button type="submit" [hidden]="gameForm.get('prezzo').status == 'INVALID'">modifica gioco</button>
+  
     <button type="button" (click)="ngFormReset()">reset</button>
   </form>
 </div>
