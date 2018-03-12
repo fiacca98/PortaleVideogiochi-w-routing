@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +30,8 @@ import { AuthGurdaLoginService } from './auth-gurda-login.service';
   imports: [
     BrowserModule,
     FormsModule,
-    PortaleRouterModule
+    PortaleRouterModule,
+    ReactiveFormsModule
   ],
   providers: [GameListService, LoginService, AuthGuardService, AuthGurdaLoginService],
   bootstrap: [AppComponent]
