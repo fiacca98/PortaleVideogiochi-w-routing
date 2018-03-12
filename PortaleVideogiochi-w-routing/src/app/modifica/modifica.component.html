@@ -3,18 +3,16 @@
   cerca gioco
 </div>
 <div *ngIf="currentGame != null">
-  <form #updateForm="ngForm" (ngSubmit)="saveData()" >
-    <div class="form-group">
+  <form (ngSubmit)="saveData()" [formGroup]="gameForm">
     {{currentGame?.id}}<br>
-    <input [(ngModel)]="currentGame.nome" name="nameInput" type="text" #nameVar="ngModel" required><br>
-    <input [(ngModel)]="currentGame.descrizione" name="descriptionInput" #descVar="ngModel" value="" required><br>
-    <input [(ngModel)]="currentGame.genere" name="genereInput" #genereVar="ngModel" required><br>
-    <input [(ngModel)]="currentGame.rating" type="number" name="ratingInput" #ratingVar="ngModel" required><br>
-    <input [(ngModel)]="currentGame.prezzo" type="number" name="priceInput" #priceVar="ngModel" required><br>
-    <input [(ngModel)]="currentGame.annoUscita" type="date" name="yearInput" #yearVar="ngModel" required><br>
-    <input [(ngModel)]="currentGame.consoleType" name="consoleInput" #consoleVar="ngModel" required><br>
-    <button type="submit" [hidden]="nameVar.pristine && descVar.pristine && genereVar.pristine && (ratingVar.pristine || !ratingVar.valid) && priceVar.pristine && yearVar.pristine && consoleVar.pristine">modifica gioco</button>
+    <input formControlName="nome"><br>
+    <input formControlName="descrizione"><br>
+    <input formControlName="genere"><br>
+    <input formControlName="rating"><br>
+    <input formControlName="prezzo"><br>
+    <input formControlName="annoUscita"><br>
+    <input formControlName="consoleType"><br>
+    <button type="submit">modifica gioco</button>
     <button type="button" (click)="ngFormReset()">reset</button>
-  </div>
   </form>
 </div>
